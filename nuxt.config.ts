@@ -1,19 +1,11 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-07-30',
-  // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
-  future: { compatibilityVersion: 4 },
-
-  // https://nuxt.com/modules
   modules: [
     '@nuxthub/core',
-    '@nuxt/eslint'
+    '@nuxt/ui',
+    'nuxt-gtag',
+    '@nuxtjs/color-mode'
   ],
-
-  // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {},
-
-  // Env variables - https://nuxt.com/docs/getting-started/configuration#environment-variables-and-private-tokens
   runtimeConfig: {
     public: {
       // Can be overridden by NUXT_PUBLIC_HELLO_TEXT environment variable
@@ -21,15 +13,52 @@ export default defineNuxtConfig({
     }
   },
 
-  // https://eslint.nuxt.com
-  eslint: {
-    config: {
-      stylistic: {
-        quotes: 'single'
-      }
+  ui: {
+    global: true,
+    icons: ['heroicons']
+  },
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light'
+  },
+
+  gtag: {
+    id: 'G-JD018Z5SJW'
+  },
+
+  app: {
+    head: {
+      title: 'TailwindCSS Color Palette Generator',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { 
+          name: 'description', 
+          content: 'Generate beautiful color palettes for Tailwind CSS with live preview and instant configuration' 
+        },
+        {
+          name: 'keywords',
+          content: 'tailwind, css, color, palette, generator, design, web development, color shades, color scale'
+        },
+        { name: 'author', content: 'Tailwind Color Palette Generator' },
+        { property: 'og:title', content: 'TailwindCSS Color Palette Generator' },
+        { 
+          property: 'og:description', 
+          content: 'Generate beautiful color palettes for Tailwind CSS with live preview and instant configuration' 
+        },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'TailwindCSS Color Palette Generator' },
+        { 
+          name: 'twitter:description', 
+          content: 'Generate beautiful color palettes for Tailwind CSS with live preview and instant configuration' 
+        }
+      ]
     }
   },
 
-  // https://devtools.nuxt.com
-  devtools: { enabled: true }
+  devtools: { enabled: false },
+  compatibilityDate: '2024-11-30'
 })

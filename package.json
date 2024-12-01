@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "tailwind-palette-generator",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,21 +7,23 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint ."
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/eslint": "^0.5.5",
-    "@nuxthub/core": "^0.7.9",
     "nuxt": "^3.13.0",
-    "vue": "^3.4.38",
-    "vue-router": "^4.4.3"
+    "@nuxt/ui": "^2.14.2",
+    "@nuxthub/core": "^0.7.9",
+    "chroma-js": "^2.4.2",
+    "color-namer": "^1.4.0",
+    "@vueuse/core": "^10.9.0",
+    "@iconify-json/heroicons": "^1.1.20",
+    "@iconify-json/simple-icons": "^1.1.94",
+    "nuxt-gtag": "^1.2.0",
+    "@nuxtjs/color-mode": "^3.3.2"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "^0.5.5",
-    "eslint": "^9.9.1",
-    "vue-tsc": "^2.1.4",
-    "wrangler": "^3.73.0"
-  },
-  "packageManager": "pnpm@9.9.0"
+      "packageManager": "pnpm@9.9.0",
+    "@types/chroma-js": "^2.4.4",
+    "@types/color-namer": "^1.3.3"
+  }
 }
