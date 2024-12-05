@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   ui: {
     global: true,
-    icons: ['heroicons']
+    icons: ['heroicons', 'simple-icons']
   },
 
   colorMode: {
@@ -31,6 +31,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'TailwindCSS Color Palette Generator',
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }
+      ],
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -42,19 +45,21 @@ export default defineNuxtConfig({
           name: 'keywords',
           content: 'tailwind, css, color, palette, generator, design, web development, color shades, color scale'
         },
-        { name: 'author', content: 'Tailwind Color Palette Generator' },
+        { name: 'author', content: 'Jay Bharadia' },
         { property: 'og:title', content: 'TailwindCSS Color Palette Generator' },
         { 
           property: 'og:description', 
           content: 'Generate beautiful color palettes for Tailwind CSS with live preview and instant configuration' 
         },
         { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: '/social-preview.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'TailwindCSS Color Palette Generator' },
         { 
           name: 'twitter:description', 
           content: 'Generate beautiful color palettes for Tailwind CSS with live preview and instant configuration' 
-        }
+        },
+        { name: 'twitter:image', content: '/social-preview.png' }
       ]
     }
   },

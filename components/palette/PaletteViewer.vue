@@ -40,7 +40,17 @@
 
       <UCard>
         <template #header>
-          <h3 class="text-lg font-semibold">Tailwind Config</h3>
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold">Tailwind Config</h3>
+            <UButton
+              color="gray"
+              variant="ghost"
+              icon="i-heroicons-clipboard-20-solid"
+              @click="$emit('copy-config')"
+            >
+              Copy
+            </UButton>
+          </div>
         </template>
         <pre class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto"><code>{{ configOutput }}</code></pre>
       </UCard>

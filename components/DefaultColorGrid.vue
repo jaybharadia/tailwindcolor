@@ -8,12 +8,27 @@
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <ColorShades
+      <div
         v-for="(color, index) in colors"
         :key="index"
-        :base-color="color"
-        @copy="copyHex"
-      />
+        class="group relative"
+      >
+        <ColorShades
+          :base-color="color"
+          @copy="copyHex"
+        />
+        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <UButton
+            color="white"
+            variant="solid"
+            size="xs"
+            icon="i-heroicons-clipboard-20-solid"
+            @click="copyColorConfig(color, index)"
+          >
+            Copy Config
+          </UButton>
+        </div>
+      </div>
     </div>
 
     <!-- Floating Action Button -->
@@ -29,6 +44,7 @@
 <script setup lang="ts">
 import { useClipboard } from '@vueuse/core'
 import chroma from 'chroma-js'
+import colorNamer from 'color-namer'
 
 const { copy } = useClipboard()
 const toast = useToast()
@@ -60,6 +76,52 @@ const copyHex = async (hex: string) => {
   toast.add({
     title: 'Color copied!',
     description: `${hex.toUpperCase()} has been copied to your clipboard.`,
+    icon: 'i-heroicons-check-circle-20-solid'
+  })
+}
+
+const copyColorConfig = async (color: string, index: number) => {
+  const base = chroma(color)
+  const name = colorNamer(color).ntc[0].name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '-')
+  
+  const palette: Record<string, string> = {}
+
+  // Generate lighter shades (50-400)
+  for (let i = 0; i < 5; i++) {
+    const shade = [50, 100, 200, 300, 400][i]
+    const mix = 1 - (i * 0.2)
+    palette[shade] = chroma.mix('white', base, mix).hex()
+  }
+
+  // Base color for 500
+  palette[500] = base.hex()
+
+  // Generate darker shades (600-900)
+  for (let i = 1; i <= 4; i++) {
+    const shade = [600, 700, 800, 900][i - 1]
+    const mix = 1 - (i * 0.2)
+    palette[shade] = chroma.mix('black', base, mix).hex()
+  }
+
+  const config = {
+    theme: {
+      extend: {
+        colors: {
+          [name]: palette
+        }
+      }
+    }
+  }
+
+  await copy(JSON.stringify(config, null, 2))
+  if (navigator.vibrate) {
+    navigator.vibrate(50)
+  }
+  toast.add({
+    title: 'Config copied!',
+    description: `Tailwind config for ${name} has been copied to your clipboard.`,
     icon: 'i-heroicons-check-circle-20-solid'
   })
 }
