@@ -1,12 +1,14 @@
 <template>
+<div>
   <div class="flex items-center gap-4 justify-center">
     <div class="w-48">
       <UInput
         :model-value="modelValue"
         :color="isValidHex ? 'primary' : 'red'"
-        placeholder="3B82F6"
+        placeholder="Enter hex color (e.g. 3B82F6)"
         class="font-mono"
         icon="i-heroicons-swatch-20-solid"
+        autofocus
         :ui="{
           input: {
             base: 'transition-all duration-200',
@@ -30,17 +32,21 @@
       @click="$emit('generate')"
       icon="i-heroicons-sparkles-20-solid"
       :color="isValidHex ? 'primary' : 'gray'"
-      :style="isValidHex ? { backgroundColor: `#${modelValue}` } : {}"
+      :style="isValidHex ? { backgroundColor: `#${modelValue}`, color: getTextColor(`#${modelValue}`) } : {}"
     >
       Generate Colors
     </UButton>
-    <div v-if="colorName" class="text-sm">
+    
+  </div>
+  <div v-if="colorName" class="text-sm">
       Suggested name: <span class="font-semibold">{{ colorName }}</span>
     </div>
-  </div>
+</div>
 </template>
 
 <script setup lang="ts">
+import chroma from 'chroma-js'
+
 const props = defineProps<{
   modelValue: string
   colorName?: string
@@ -56,6 +62,10 @@ const isValidHex = computed(() => {
 })
 
 function handleInput(value: string) {
-  emit('update:modelValue', value.replace('#', ''))
+  emit('update:modelValue', value.replace(/[^A-Fa-f0-9]/g, ''))
+}
+
+function getTextColor(bgColor: string) {
+  return chroma(bgColor).luminance() > 0.5 ? '#000000' : '#ffffff'
 }
 </script>

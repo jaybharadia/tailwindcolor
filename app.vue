@@ -22,12 +22,7 @@
     </header>
 
     <main class="pt-16 pb-24">
-      <ColorGenerator />
-      <UContainer>
-        <div class="space-y-12">
-          <DefaultColorGrid />
-        </div>
-      </UContainer>
+      <NuxtPage/>
     </main>
     
     <AboutModal v-model="showAbout" />
