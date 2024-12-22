@@ -1,42 +1,88 @@
-# Nuxt 3 Minimal Starter
+# TailwindCSS Color Palette Generator
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A powerful and intuitive tool for generating beautiful color palettes for your Tailwind CSS projects. Create, preview, and export color configurations with live previews of UI components.
 
-## Setup
+## Features
 
-Make sure to install the dependencies:
+- 🎨 Generate complete color palettes from a single hex color
+- 👁️ Live preview with real UI components
+- 🌗 Dark/Light mode support
+- 📱 Responsive design for all devices
+- ⌨️ Keyboard shortcuts for quick generation
+- 📋 One-click config copying
+- 🎯 Real-time color validation
+- 💅 Interactive color previews
+
+## Project Structure
+
+```
+├── components/
+│   ├── color/              # Color-related components
+│   │   ├── ColorInput.vue
+│   │   └── ColorShades.vue
+│   ├── palette/           # Palette visualization
+│   │   ├── PaletteViewer.vue
+│   │   └── ColorGrid.vue
+│   ├── preview/           # UI preview components
+│   │   ├── ButtonsPreview.vue
+│   │   ├── DashboardPreview.vue
+│   │   ├── LogoPreview.vue
+│   │   └── WebsitePreview.vue
+│   └── layout/            # Layout components
+│       ├── AppHeader.vue
+│       └── AboutModal.vue
+├── utils/
+│   └── colors.ts         # Color manipulation utilities
+├── composables/
+│   └── useColorPalette.ts # Color palette logic
+└── pages/
+    ├── index.vue         # Main page
+    └── visualizer.vue    # Color visualizer
+
+```
+
+## Tech Stack
+
+- 🛠️ Nuxt 3 - Vue.js Framework
+- 🎨 Tailwind CSS - Utility-first CSS
+- 🎯 Nuxt UI - Component Library
+- 📊 Chroma.js - Color manipulation
+- 🔍 Color Namer - Color naming utility
+
+## Development
 
 ```bash
-# yarn
-yarn install
-
-# npm
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
+# Start development server
 npm run dev
-```
 
-## Production
-
-Build the application for production:
-
-```bash
+# Build for production
 npm run build
+
 ```
 
-Locally preview production build:
+## Best Practices
 
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+1. **Component Organization**
+   - Keep components small and focused
+   - Use composition API for logic
+   - Implement proper prop validation
+   - Document component usage
+2. **State Management**
+   - Use composables for shared logic
+   - Implement proper reactive state
+   - Handle side effects appropriately
+3. **Performance**
+   - Lazy load components when possible
+   - Optimize color calculations
+   - Implement proper memoization
+4. **Accessibility**
+   - Maintain proper contrast ratios
+   - Implement keyboard navigation
+   - Add proper ARIA labels
+5. **Code Style**
+   - Follow Vue.js style guide
+   - Use TypeScript for type safety
+   - Implement proper error handling

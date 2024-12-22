@@ -10,7 +10,7 @@
         </div>
         
         <PreviewGrid :palette="palette" />
-        <WebsitePreview :palette="palette" />
+        <PreviewWebsite :palette="palette" />
       </div>
     </UContainer>
   </section>
