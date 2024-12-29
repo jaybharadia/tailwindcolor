@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-950">
+  <div class="bg-gray-50 dark:bg-gray-950">
     <main class="pt-16 pb-24">
       <HeroSection @generate="handleGenerate" />
       <PreviewSection :palette="currentPalette" />

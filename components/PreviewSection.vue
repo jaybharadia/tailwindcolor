@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12 h-screen">
+  <section class="py-12">
     <UContainer>
       <div class="space-y-8 h-full">
         <div class="text-center">
@@ -8,7 +8,7 @@
             See how your color palette looks in real-world components
           </p>
         </div>
-        
+
         <PreviewGrid :palette="palette" />
         <PreviewWebsite :palette="palette" />
       </div>
@@ -18,6 +18,6 @@
 
 <script setup lang="ts">
 defineProps<{
-  palette?: Record<string, string>
-}>()
+  palette?: Record<string, string>;
+}>();
 </script>
