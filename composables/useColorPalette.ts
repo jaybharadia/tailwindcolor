@@ -72,11 +72,6 @@ export function useColorPalette() {
       spread: 200,
     });
 
-    toast.add({
-      title: "Palette generated!",
-      description: `Color palette for ${colorName.value} has been generated successfully.`,
-      icon: "i-heroicons-sparkles-20-solid",
-    });
     return palette.value;
   }
 

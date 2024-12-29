@@ -18,9 +18,11 @@ const currentPalette = ref(generateRandomPalette());
 const { generatePalette } = useColorPalette();
 
 function handleGenerate(color) {
-  console.log("COLOR", color);
-
-  currentPalette.value = generatePalette(color);
+  if (color) {
+    currentPalette.value = generatePalette(color);
+  } else {
+    currentPalette.value = generateRandomPalette();
+  }
 }
 
 // Handle spacebar for new palette generation

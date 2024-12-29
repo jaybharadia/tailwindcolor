@@ -60,13 +60,6 @@ const generateNewColors = () => {
   if (navigator.vibrate) {
     navigator.vibrate(100);
   }
-
-  toast.clear();
-  toast.add({
-    title: "New colors generated!",
-    description: "Press spacebar or the button to generate more colors.",
-    icon: "i-heroicons-sparkles-20-solid",
-  });
 };
 
 const copyHex = async (hex: string) => {
