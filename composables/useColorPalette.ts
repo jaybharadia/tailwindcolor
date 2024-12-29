@@ -40,39 +40,43 @@ export function useColorPalette() {
   });
 
   function generatePalette(color: string) {
-    baseColor.value = color.replace("#", "");
-    const base = chroma(`#${baseColor.value}`);
+    try {
+      baseColor.value = color.replace("#", "");
+      const base = chroma(`#${baseColor.value}`);
 
-    // Generate lighter shades (50-400)
-    for (let i = 0; i < 5; i++) {
-      const shade = [50, 100, 200, 300, 400][i];
-      const mix = 1 - i * 0.2;
-      palette.value[shade] = chroma.mix("white", base, mix).hex();
+      // Generate lighter shades (50-400)
+      for (let i = 0; i < 5; i++) {
+        const shade = [50, 100, 200, 300, 400][i];
+        const mix = 1 - i * 0.2;
+        palette.value[shade] = chroma.mix("white", base, mix).hex();
+      }
+
+      // Base color for 500
+      palette.value[500] = base.hex();
+
+      // Generate darker shades (600-900)
+      for (let i = 1; i <= 4; i++) {
+        const shade = [600, 700, 800, 900][i - 1];
+        const mix = 1 - i * 0.2;
+        palette.value[shade] = chroma.mix("black", base, mix).hex();
+      }
+
+      console.log("palette", palette.value);
+
+      // Vibrate on mobile devices
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
+
+      confetti({
+        particleCount: 400,
+        spread: 200,
+      });
+
+      return palette.value;
+    } catch (e) {
+      console.log(e);
     }
-
-    // Base color for 500
-    palette.value[500] = base.hex();
-
-    // Generate darker shades (600-900)
-    for (let i = 1; i <= 4; i++) {
-      const shade = [600, 700, 800, 900][i - 1];
-      const mix = 1 - i * 0.2;
-      palette.value[shade] = chroma.mix("black", base, mix).hex();
-    }
-
-    console.log("palette", palette.value);
-
-    // Vibrate on mobile devices
-    if (navigator.vibrate) {
-      navigator.vibrate(50);
-    }
-
-    confetti({
-      particleCount: 400,
-      spread: 200,
-    });
-
-    return palette.value;
   }
 
   async function copyConfig() {
