@@ -1,5 +1,12 @@
 export default defineNuxtConfig({
-  modules: ["@nuxthub/core", "@nuxt/ui", "nuxt-gtag", "@nuxtjs/color-mode"],
+  modules: [
+    "@nuxthub/core",
+    "@nuxt/ui",
+    "nuxt-gtag",
+    "@nuxtjs/color-mode",
+    "@nuxthq/studio",
+    "@nuxt/content",
+  ],
   hub: {},
   runtimeConfig: {
     public: {
@@ -65,6 +72,8 @@ export default defineNuxtConfig({
         { name: "twitter:image", content: "/social-preview.png" },
       ],
     },
+    pageTransition: { name: "page", mode: "out-in" },
+    layoutTransition: { name: "layout", mode: "out-in" },
   },
 
   devtools: { enabled: false },
