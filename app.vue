@@ -6,10 +6,22 @@
       <NuxtPage />
       <footer>
         <UContainer>
+          <div class="flex justify-center">
+            <a href="https://www.buymeacoffee.com/jaybharadia" target="_blank"
+              ><img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-green.png"
+                alt="Buy Me A Coffee"
+                style="height: 40px !important"
+            /></a>
+          </div>
+
+          <hr class="my-4" />
           <div class="flex justify-center items-center">
             <div>
               © 2025
-              <a href="https://www.meticha.com/" class="hover:underline"
+              <a
+                href="https://www.meticha.com/"
+                class="hover:underline bg-gradient-to-r from-[#FF4A98] to-[#9D61FF] bg-clip-text text-transparent"
                 >Meticha</a
               >. All rights reserved.
             </div>

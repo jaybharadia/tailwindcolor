@@ -14,8 +14,13 @@
 import { generateRandomPalette } from "~/utils/colors";
 
 const showAbout = ref(false);
-const currentPalette = ref(generateRandomPalette());
+const currentPalette = ref(null);
 const { generatePalette } = useColorPalette();
+try {
+  currentPalette.value = generateRandomPalette();
+} catch (e) {
+  console.log(e);
+}
 
 function handleGenerate(color) {
   if (color) {
@@ -27,14 +32,18 @@ function handleGenerate(color) {
 
 // Handle spacebar for new palette generation
 onMounted(() => {
-  const handleKeydown = (e: KeyboardEvent) => {
-    if (e.code === "Space" && e.target === document.body) {
-      e.preventDefault();
-      currentPalette.value = generateRandomPalette();
-    }
-  };
+  try {
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.code === "Space" && e.target === document.body) {
+        e.preventDefault();
+        currentPalette.value = generateRandomPalette();
+      }
+    };
 
-  window.addEventListener("keydown", handleKeydown);
-  onUnmounted(() => window.removeEventListener("keydown", handleKeydown));
+    window.addEventListener("keydown", handleKeydown);
+    onUnmounted(() => window.removeEventListener("keydown", handleKeydown));
+  } catch (e) {
+    console.log(e);
+  }
 });
 </script>
