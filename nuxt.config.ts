@@ -1,5 +1,11 @@
 export default defineNuxtConfig({
-  modules: ["@nuxthub/core", "@nuxt/ui", "nuxt-gtag", "@nuxtjs/color-mode"],
+  modules: [
+    "@nuxthub/core",
+    "@nuxt/ui",
+    "nuxt-gtag",
+    "@nuxtjs/color-mode",
+    "@nuxt/scripts",
+  ],
   hub: {},
   runtimeConfig: {
     public: {
@@ -17,6 +23,15 @@ export default defineNuxtConfig({
     classSuffix: "",
     preference: "system",
     fallback: "light",
+  },
+  $production: {
+    scripts: {
+      registry: {
+        clarity: {
+          id: "pmjxogos4m",
+        },
+      },
+    },
   },
 
   gtag: {

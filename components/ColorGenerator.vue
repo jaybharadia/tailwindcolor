@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroSection @generate="onGenerate($event)" />
+    <HeroSection @generate="onGenerate" />
 
     <PaletteViewer
       v-model="showPalette"
@@ -42,9 +42,10 @@ const configOutput = computed(() => {
   return JSON.stringify(config, null, 2);
 });
 
-const onGenerate = (color) => {
+const onGenerate = (color, name) => {
   baseColor.value = `#${color}`;
   palette.value = generatePalette(color);
+  colorName.value = name;
   showPalette.value = true;
 };
 
