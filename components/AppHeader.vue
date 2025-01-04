@@ -5,7 +5,8 @@
     <UContainer class="h-16 flex items-center justify-between">
       <div class="flex items-center gap-4">
         <NuxtLink to="/" class="flex items-center gap-2">
-          <img src="/logo.svg" alt="Logo" class="w-8 h-8 text-primary-500" />
+          <TheLogo class="w-8 h-8 dark:text-white" />
+
           <h1 class="text-xl font-bold hidden sm:block">
             TailwindCSS Color Palette Generator
           </h1>

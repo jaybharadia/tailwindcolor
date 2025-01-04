@@ -5,7 +5,15 @@ export default defineNuxtConfig({
     "nuxt-gtag",
     "@nuxtjs/color-mode",
     "@nuxt/scripts",
+    "@nuxtjs/seo",
   ],
+  site: {
+    url: "https://tailwindcolors.meticha.com",
+    name: "TailwindCSS Color Palette Generator",
+    description:
+      "Generate beautiful color palettes for Tailwind CSS with live preview and instant configuration",
+    defaultLocale: "en", // not needed if you have @nuxtjs/i18n installed
+  },
   hub: {},
   runtimeConfig: {
     public: {

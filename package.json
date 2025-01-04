@@ -17,6 +17,7 @@
     "@nuxt/ui": "^2.14.2",
     "@nuxthub/core": "^0.7.9",
     "@nuxtjs/color-mode": "^3.3.2",
+    "@nuxtjs/seo": "2.0.2",
     "@vueuse/core": "^10.9.0",
     "canvas-confetti": "^1.9.3",
     "chroma-js": "^2.4.2",
