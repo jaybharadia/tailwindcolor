@@ -14,6 +14,16 @@
             Create beautiful color palettes for your Tailwind CSS projects with
             live preview
           </p>
+          <!-- New Bookmark CTA -->
+          <div class="mt-4 p-4 bg-primary-50 dark:bg-gray-800 rounded-lg">
+            <p
+              class="text-sm font-medium text-primary-700 dark:text-primary-300 flex items-center justify-center gap-2"
+            >
+              <UIcon name="i-heroicons-bookmark-20-solid" />
+              You can bookmark this page so you'll never forget any Tailwind
+              color again!
+            </p>
+          </div>
         </div>
 
         <ColorInput
@@ -27,7 +37,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import colorNamer from "color-namer";
 
 const color = ref("");
