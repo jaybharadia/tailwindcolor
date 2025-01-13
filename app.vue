@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gray-50 dark:bg-gray-950">
     <AppHeader v-model="showAbout" />
 
-    <main class="pt-16 pb-24">
+    <main class="pt-16">
       <NuxtPage />
     </main>
 

@@ -1,12 +1,10 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-950">
-    <main class="pt-16 pb-24">
+    <main class="pt-16">
       <ColorGenerator />
-      <UContainer>
-        <div class="space-y-12">
-          <DefaultColorGrid />
-        </div>
-      </UContainer>
+      <div class="space-y-12 px-4">
+        <DefaultColorGrid />
+      </div>
     </main>
 
     <AboutModal v-model="showAbout" />

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50 dark:bg-gray-950">
-    <main class="pt-16 pb-24">
+    <main class="pt-16">
       <HeroSection @generate="handleGenerate" />
       <PreviewSection :palette="currentPalette" />
     </main>
@@ -15,12 +15,8 @@ import { generateRandomPalette } from "~/utils/colors";
 
 const showAbout = ref(false);
 const currentPalette = ref(null);
+const route = useRoute();
 const { generatePalette } = useColorPalette();
-try {
-  currentPalette.value = generateRandomPalette();
-} catch (e) {
-  console.log(e);
-}
 
 function handleGenerate(color) {
   if (color) {
@@ -33,6 +29,17 @@ function handleGenerate(color) {
 // Handle spacebar for new palette generation
 onMounted(() => {
   try {
+    const color = decodeURIComponent(route.query.color);
+    if (color) {
+      handleGenerate(color);
+    } else {
+      try {
+        currentPalette.value = generateRandomPalette();
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
     const handleKeydown = (e: KeyboardEvent) => {
       if (e.code === "Space" && e.target === document.body) {
         e.preventDefault();
