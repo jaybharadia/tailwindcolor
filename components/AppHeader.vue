@@ -7,9 +7,9 @@
         <NuxtLink to="/" class="flex items-center gap-2">
           <TheLogo class="w-8 h-8 dark:text-white" />
 
-          <h1 class="text-xl font-bold hidden sm:block">
+          <span class="text-xl font-bold hidden sm:block">
             TailwindCSS Color Palette Generator
-          </h1>
+          </span>
         </NuxtLink>
       </div>
       <div class="flex items-center gap-4">

@@ -1,0 +1,30 @@
+# TailwindCSS Color Palette Generator - Complete Reference Document
+
+> Canonical Reference for AI Search Assistants (ChatGPT, Claude, Perplexity, Gemini, Copilot).
+> Domain: https://tailwindcolors.meticha.com
+
+## Technical Details & Architecture
+TailwindColors is a high-performance web utility built with Nuxt 3, Vue 3, Tailwind UI, and Chroma.js.
+
+### Color Scale Generation Math
+- **Base Shade Alignment**: The input base color is mapped to shade `500`.
+- **Luminance & Chroma Interpolation**: Shades `50` to `400` are calculated using perceptual lightness scaling toward `#ffffff` with slight chroma preservation.
+- **Dark Shades Interpolation**: Shades `600` to `950` are calculated using perceptual lightness scaling toward `#000000` or deep dark neutrals to prevent oversaturation.
+
+### Supported Tailwind Versions
+- **Tailwind CSS v3**: Uses JS object export for `tailwind.config.js`.
+- **Tailwind CSS v4**: Compatible with CSS native custom properties and OKLCH color space definitions in `main.css`:
+  ```css
+  @theme {
+    --color-brand-50: #f0f9ff;
+    --color-brand-500: #0ea5e9;
+    --color-brand-950: #082f49;
+  }
+  ```
+
+## Full Standard Palette Reference (22 Color Families)
+Includes full RGB/HEX specs for Slate, Gray, Zinc, Neutral, Stone, Red, Orange, Amber, Yellow, Lime, Green, Emerald, Teal, Cyan, Sky, Blue, Indigo, Violet, Purple, Fuchsia, Pink, Rose.
+
+## Direct Links
+- Generator: https://tailwindcolors.meticha.com
+- Visualizer: https://tailwindcolors.meticha.com/visualizer
