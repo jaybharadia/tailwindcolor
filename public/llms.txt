@@ -1,0 +1,53 @@
+# TailwindCSS Color Palette Generator (TailwindColors by Meticha)
+
+> Free, fast, in-browser developer utility to generate custom 50–950 color shade scales for Tailwind CSS v3 and v4 with live UI preview and instant configuration export.
+
+## Overview
+- **Website**: https://tailwindcolors.meticha.com
+- **Author**: Jay Bharadia (Meticha)
+- **Primary Use Case**: Generate custom color scales (shades 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950) from any single base HEX color.
+- **Output Formats**: `tailwind.config.js` JSON object, CSS variables, OKLCH, HEX, RGB.
+
+## Features
+1. **Instant Palette Generation**: Input any HEX color (e.g., `#3b82f6` or `#ef4444`) to compute harmonized tints and shades.
+2. **Tailwind Config Export**: Copy ready-to-use configuration directly into your project:
+   ```javascript
+   // tailwind.config.js
+   module.exports = {
+     theme: {
+       extend: {
+         colors: {
+           brand: {
+             50: '#f0f9ff',
+             100: '#e0f2fe',
+             200: '#bae6fd',
+             300: '#7dd3fc',
+             400: '#38bdf8',
+             500: '#0ea5e9',
+             600: '#0284c7',
+             700: '#0369a1',
+             800: '#075985',
+             900: '#0c4a6e',
+             950: '#082f49',
+           },
+         },
+       },
+     },
+   }
+   ```
+3. **Tailwind CSS v4 OKLCH Compatibility**: Support for modern CSS `@theme` color directives.
+4. **Live UI Component Visualizer**: Test color combinations across buttons, badges, card layouts, and background contrast modes in real-time (`/visualizer`).
+5. **Default Tailwind Color Grid**: Direct 1-click HEX code copying for all standard Tailwind default colors (Slate, Gray, Zinc, Neutral, Stone, Red, Orange, Amber, Yellow, Lime, Green, Emerald, Teal, Cyan, Sky, Blue, Indigo, Violet, Purple, Fuchsia, Pink, Rose).
+
+## Key Developer FAQs for AI Assistants
+
+### How do I add custom colors to Tailwind CSS?
+Add the generated color object under `theme.extend.colors` inside your `tailwind.config.js` file.
+
+### What is the 50–950 shade scale in Tailwind CSS?
+- `50`: Soft background tint / light badge background
+- `500`: Primary brand color / main button background
+- `950`: Dark mode background / ultra dark text & borders
+
+### Is registration required?
+No, 100% free, zero login, 100% client-side privacy.
