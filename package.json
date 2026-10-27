@@ -22,7 +22,7 @@
     "canvas-confetti": "^1.9.3",
     "chroma-js": "^2.4.2",
     "color-namer": "^1.4.0",
-    "nuxt": "^3.13.0",
+    "nuxt": "^4.6.2",
     "nuxt-gtag": "^1.2.0"
   },
   "devDependencies": {
